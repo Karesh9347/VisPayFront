@@ -1,0 +1,217 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#bottom{
+  background-image:linear-gradient(rgb(154, 154, 245),rgb(95, 209, 247),rgb(137, 137, 249));
+}
+#nav{
+  background-image: linear-gradient(to bottom,rgb(163, 215, 242),rgb(143, 238, 238),rgb(241, 243, 245));
+}
+#image-back:hover{
+  border:4px solid green;
+
+}
+#image-back{
+  border:2px solid rgb(173, 10, 173);
+
+}
+
+#back{
+  background-image: linear-gradient(60deg,rgb(161, 24, 161),rgb(204, 141, 204),rgb(150, 14, 150));
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+#back:hover{
+  background-image:linear-gradient(50deg,rgb(39, 181, 39),rgb(123, 168, 123),rgb(50, 157, 50));
+}
+
+#profile:hover{
+  background-color: rgb(138, 117, 234);
+
+}
+main{
+  text-align: start;
+  width:100vw;
+  height: 100vh;
+  background-image: url("https://voiceofadventure.com/wp-content/uploads/2021/04/Torna-e1618492554887-1024x1021.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top: -40px;
+  
+ 
+  
+}
+#sub{
+  margin-top: 100px;
+  backdrop-filter: blur(10px);
+
+  width:350px;
+  height: 330px;
+  border-radius: 5%;
+  text-align: start;
+  font-weight: 800;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
+  text-shadow:1px 1px;
+color:violet;
+}
+#sub Button{
+  width:320px;
+  text-align: center;
+  font-weight: bold;
+  color:black;
+}
+#line{
+  
+  background-color:rgb(7, 7, 7);
+  height: 2px;
+  
+}
+#sub1{
+  margin-top: 100px;
+  backdrop-filter: blur(5px);
+  width:350px;
+  height: 500px;border-radius: 5%;
+  text-align: start;
+  font-weight: 800;
+  
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
+  text-shadow:1px;
+color:violet;
+
+}
+
+#sub1 Button{
+  width:310px;
+  text-align: center;
+  font-weight: bold;
+  color:black;
+}
+#sub1 Button:hover{
+ 
+ background-color: rgb(13, 229, 34);
+ border-radius: 20px;
+}
+#sub Button:hover{
+ 
+  background-color:rgb(61, 236, 61);
+ border-radius: 20px;
+  
+  
+ }
+hr{
+  background-color: darkblue;
+  height: 3px;
+}
+
+#form{
+  padding: 10px;
+}
+#heading{
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg,rgb(226, 242, 8),rgb(85, 85, 241),rgb(219, 22, 219));
+  -webkit-text-stroke:2px black;
+  text-shadow: 1px 1px;
+  background-clip: text;
+  color:rgb(123, 168, 123,0.1);
+  font-size:30px;
+
+}
+#heading:hover{
+  background: linear-gradient(45deg,rgb(242, 144, 8),rgb(239, 10, 182),rgb(219, 22, 219));
+  background-clip: text;
+
+}
+#label:hover{
+  color:chartreuse;
+
+}
+#control:hover{
+  color:red;
+  font-weight: bolder;
+  font-style: italic;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#control{
+  
+  font-weight: bolder;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#subm{
+  
+  
+  text-align: start;
+  font-weight: 800;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
+  text-shadow:1px;
+color:violet;
+
+
+
+}
+#subm Button{
+  width:200px;
+  text-align: center;
+  font-weight: bold;
+  color:black;
+}
+#subm Button:hover{
+ 
+ background-color: rgb(13, 229, 34);
+ border-radius: 20px;
+}
+#heading1{
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg,rgb(226, 242, 8),rgb(85, 85, 241),rgb(219, 22, 219));
+  -webkit-text-stroke:2px black;
+  text-shadow: 1px 1px;
+  background-clip: text;
+  color:rgb(123, 168, 123,0.1);
+  font-size:25px;
+
+}
+
