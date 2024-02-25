@@ -1,2 +1,2 @@
-export const base_url="https://vispay.onrender.com"
-export const back_url="https://vispay.onrender.com"
+export const base_url="vis-pay.vercel.app"
+export const back_url="vis-pay.vercel.app"
