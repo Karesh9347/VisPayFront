@@ -124,7 +124,7 @@ animation: body 6s infinite;
   margin-top: 100px;
   backdrop-filter: blur(50px);
   
-  width:370px;
+  width:320px;
   background-color:blue;
   height: 350px;
 border-radius: 5%;
@@ -138,13 +138,13 @@ color:rgb(168, 9, 168);
 }
 #sub:hover{
 
-  width:370px;
-  height: 340px;
+ 
+  
   padding: 1px;
   border-radius: 5%;
 }
 #sub Button{
-  width:340px;
+  width:290px;
   text-align: center;
   font-weight: bold;
   color:black;
@@ -161,7 +161,7 @@ color:rgb(168, 9, 168);
   margin-top: 100px;
   backdrop-filter: blur(50px);
   
-  width:370px;
+  width:320px;
   background-color:blue;
   height: 450px;
 border-radius: 5%;
@@ -176,7 +176,7 @@ padding: 2px;
 }
 
 #sub1 Button{
-  width:345px;
+  width:290px;
   text-align: center;
   font-weight: bold;
   color:black;
@@ -186,11 +186,10 @@ padding: 2px;
  
  background-color: rgb(13, 229, 34);
  border-radius: 20px;
- width:340px;
+ 
 }
 #sub hr{
-  width:200px;
-  margin-left: 70px;
+ height: 2px;
 }
 
 #sub Button:hover{
