@@ -93,7 +93,7 @@ const check=()=>{
   };
   
   return (
-    <div style={{ marginTop: '100px'}}>
+    <div style={{ marginTop: '100px'}} className="my-3">
       <Nav />
       {paymentStatus ? (
         <Success />
