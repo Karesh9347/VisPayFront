@@ -103,7 +103,7 @@ const Success = ({category,setCategory}) => {
   return (
     <div style={{ marginTop: '100px' }}>
       <Nav />
-      <Container style={{ width: '350px' }} id="sub">
+      <Container style={{ width: '350px' }} id="sub" className="bg-light">
         {token && data ? (
           <Card style={{ backgroundColor: 'lightgreen' }}>
             <Card.Header className='text-success'>Payment successfully completed</Card.Header>
