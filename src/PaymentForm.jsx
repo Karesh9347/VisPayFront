@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, FormGroup } from 'react-bootstrap';
+import { Form, Button, FormGroup,Card } from 'react-bootstrap';
 import Success from './Success';
 import Bottom from './Bottom';
 import Nav from './Nav';
@@ -98,7 +98,7 @@ const check=()=>{
       {paymentStatus ? (
         <Success />
       ) : (
-        <center>
+        <Card>
           
           <div id="subm" >
           <h1 id='heading1'>Payment Form</h1>
@@ -177,7 +177,7 @@ const check=()=>{
             </Button>
           </Form>
           </div>
-     </center>
+     </Card>
       )}
       <Bottom />
     </div>
