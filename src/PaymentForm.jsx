@@ -93,16 +93,16 @@ const check=()=>{
   };
   
   return (
-    <div style={{ margin: '100px'}}>
+    <div style={{ marginTop: '100px'}}>
       <Nav />
       {paymentStatus ? (
         <Success />
       ) : (
-        <Card>
+        <Card  id="subm">
           
-          <div id="subm" >
-          <h1 id='heading1'>Payment Form</h1>
-          <hr/>
+         
+          <CardHeader id='heading1'>Payment Form</CardHeader>
+         
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName">
               <Form.Label id="label">Name <span className='text-danger'>★</span></Form.Label>
@@ -171,12 +171,14 @@ const check=()=>{
            </FormGroup>
             
 
-            <br />
+          <CardFooter>
             <Button variant="primary" type="submit" disabled={loading}>
               {loading ? 'Processing...' : 'Proceed to Pay'}
             </Button>
+            </CardFooter>
+            
           </Form>
-          </div>
+         
      </Card>
       )}
       <Bottom />
