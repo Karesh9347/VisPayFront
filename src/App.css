@@ -73,46 +73,83 @@ main{
   background-size: cover;
   background-attachment: fixed;
   margin-top: -40px;
-  display: grid;
-  gap:10px;
-  padding: 10px;
-opacity:0.89;
+  
+
+animation: body 6s infinite;
   
  
   
 }
-#circle{
-  background-color: rgb(214, 49, 77);
-  border-radius: 50%;
- 
- 
+@keyframes body{
+  0% {
+    background-image: linear-gradient(45deg,green,white, orange);
+  }
+  10% {
+    background-image: linear-gradient(45deg,green,white, orange);
+    
+  }
+  20% {
+    background-image: linear-gradient(90deg,green,white, orange);
+   
+  }
+  30% {
+    background-image: linear-gradient(135deg,green,white, orange);
+    
+  }
+  40% {
+    background-image: linear-gradient(180deg,green,white, orange);
+  }
+  50% {
+    background-image: linear-gradient(225deg,green,white, orange);
+  }
+  60% {
+    background-image: linear-gradient(270deg,green,white, orange);
+  }
+  70% {
+    background-image: linear-gradient(315deg,green,white, orange);
+  }
+  80% {
+    background-image: linear-gradient(360deg,green,white, orange);
+  }
+  90% {
+    background-image: linear-gradient(to bottom,green,white, orange);
+  }
+  100% {
+    background-image: linear-gradient(to bottom,green,white, orange);
+    
+  }
 }
-#circle:hover{
-  transition: 200px width;
-}
+
 #sub{
   margin-top: 100px;
   backdrop-filter: blur(50px);
   
-  width:350px;
-  background-color:rgb(7, 7, 7);
-  height: 330px;
-  border-radius: 5%;
+  width:370px;
+  background-color:blue;
+  height: 350px;
+border-radius: 5%;
   text-align: start;
   font-weight: 800;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: capitalize;
   text-shadow:1px 1px;
-color:violet;
+color:rgb(168, 9, 168);
+
 }
 #sub:hover{
-  background-color: coral;
+
+  width:370px;
+  height: 340px;
+  padding: 1px;
+  border-radius: 5%;
 }
 #sub Button{
-  width:320px;
+  width:340px;
   text-align: center;
   font-weight: bold;
   color:black;
+  background-color:rgb(215, 58, 226);
+ 
 }
 #line{
   
@@ -122,30 +159,40 @@ color:violet;
 }
 #sub1{
   margin-top: 100px;
-  backdrop-filter: blur(5px);
-  width:350px;
-  height: 500px;border-radius: 5%;
+  backdrop-filter: blur(50px);
+  
+  width:370px;
+  background-color:blue;
+  height: 450px;
+border-radius: 5%;
   text-align: start;
   font-weight: 800;
-  
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: capitalize;
-  text-shadow:1px;
-color:violet;
+  text-shadow:1px 1px;
+color:rgb(168, 9, 168);
+padding: 2px;
 
 }
 
 #sub1 Button{
-  width:310px;
+  width:345px;
   text-align: center;
   font-weight: bold;
   color:black;
+  background-color:rgb(215, 58, 226);
 }
 #sub1 Button:hover{
  
  background-color: rgb(13, 229, 34);
  border-radius: 20px;
+ width:340px;
 }
+#sub hr{
+  width:200px;
+  margin-left: 70px;
+}
+
 #sub Button:hover{
  
   background-color:rgb(61, 236, 61);
@@ -156,7 +203,10 @@ color:violet;
 hr{
   background-color: darkblue;
   height: 3px;
+  
+
 }
+
 
 #form{
   padding: 10px;
@@ -196,10 +246,8 @@ hr{
 }
 #subm{
   
- font-weight: 800;
- color:green;
-
-
+ font-weight:880;
+ padding: 20px;
 
 }
 #subm Button{
