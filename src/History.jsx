@@ -79,7 +79,7 @@ const History = () => {
                 <th>Amount</th>
                 <th>Category</th>
                 <th>Date</th>
-                <th>Status</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -89,9 +89,7 @@ const History = () => {
                   <td>{item.amount}₹</td>
                   <td>{item.categoryFee}</td>
                   <td>{item.date.slice(0, 10)}</td>
-                  <td>
-                    <Badge bg="success">Success</Badge>
-                  </td>
+  
                 </tr>
               ))}
             </tbody>
