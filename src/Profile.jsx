@@ -5,6 +5,7 @@ import { SortNumericUpAlt } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { base_url } from './key';
+import './profile.css';
 const Profile = () => {
   const navigate = useNavigate();
   const [token, setToken] = useState('');
