@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, FormGroup,Card } from 'react-bootstrap';
+import { Form, Button, FormGroup,Card ,CardHeader,CardFooter} from 'react-bootstrap';
 import Success from './Success';
 import Bottom from './Bottom';
 import Nav from './Nav';
@@ -98,7 +98,7 @@ const check=()=>{
       {paymentStatus ? (
         <Success />
       ) : (
-        <Card  id="subm">
+        <Card  id="subm" style={{marginBottom:"60px"}}>
           
          
           <CardHeader id='heading1'>Payment Form</CardHeader>
@@ -171,11 +171,11 @@ const check=()=>{
            </FormGroup>
             
 
-          <CardFooter>
+        
             <Button variant="primary" type="submit" disabled={loading}>
               {loading ? 'Processing...' : 'Proceed to Pay'}
             </Button>
-            </CardFooter>
+           
             
           </Form>
          
