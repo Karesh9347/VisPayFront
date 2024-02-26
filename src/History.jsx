@@ -54,7 +54,7 @@ for (let i = 0; i < newData.length; i++) {
     }
 
     return (
-        <Container>
+        <div className="mb-4">
             <h2 className="mt-4 mb-4 text-primary">{text}</h2>
             <hr></hr>
             {loading ? (
@@ -120,7 +120,7 @@ for (let i = 0; i < newData.length; i++) {
                 </div>
             )}
             <BottomNavbar />
-        </Container>
+        </div>
     );
 };
 
