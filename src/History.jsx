@@ -54,7 +54,7 @@ for (let i = 0; i < newData.length; i++) {
     }
 
     return (
-        <div className="mb-4">
+        <div className="mb-5">
             <h2 className="mt-4 mb-4 text-primary">{text}</h2>
             <hr></hr>
             {loading ? (
