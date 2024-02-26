@@ -62,8 +62,8 @@ const Profile = () => {
 
   return (
     <>
-      {!loading && token ? (
-        <div className='body' style={{ marginBottom: '-100px' }}>
+      {!loading || token ? (
+        <div className='body'>
           <div style={{ width: '100%', height: '130px' }} id='back'></div>
           <center style={{ marginTop: '-70px' }}>
             <div className='bg-light' style={{ width: '100px', height: '100px', borderRadius: '50%' }} id='image-back'>
@@ -71,80 +71,149 @@ const Profile = () => {
             </div>
             <p className='h3'>{data.name}</p>
           </center>
-          <Row lg={2}>
-            <Col md={6}>
-              <Card>
-                <Container className='p-5'>
-                  <div className='text-ceter  h6' style={{ textAlign: 'center' }}>
-                    I am {data.name}, studying 3rd year btech
-                    in <br />
-                    <span className='text-primary'>Visvodaya engineering college</span>
-                  </div>
-                  <br />
-                  <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
-                    <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
-                      <div>
-                        <img src="/class.png" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
-                      </div>
-                      <div>
-                        <p className='p-1 mx-1 my-1 h6'>III CSE WINDOWS</p>
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px' }} id='profile'>
-                      <div>
-                        <SortNumericUpAlt size={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px' }} color='black' />
-                      </div>
-                      <div>
-                        <p className='p-1 mx-1 my-1 h6'>{data.rollNumber}</p>
-                      </div>
-                    </div>
-                  </div>
-                  <br />
-                  <div className='d-flex justify-content-evenly'>
-                    <div style={{ display: 'flex', border: '1px solid green', width: '330px', padding: '3px', borderRadius: '10px' }} id='profile'>
-                      <div>
-                        <SortNumericUpAlt size={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px' }} color='black' />
-                      </div>
-                      <div>
-                        <p className='p-1 mx-1 my-1 h6'>9{data.mobileNumber}</p>
-                      </div>
+          <Row lg={3} id="row">
+
+
+            <Col md={4} className='mt-4'>
+
+              <Card className='p-5' id="card">
+
+                <div className='text-ceter  h6' style={{ textAlign: 'center' }}>
+                  I am {data.name}, studying 3rd year btech
+                  in <br />
+                  <span className='text-primary'>Visvodaya engineering college</span>
+                </div>
+                <br />
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
+                    <div>
+                      <img src="/class.png" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
                     </div>
                     <div>
-                      <Button className='btn-danger' onClick={setLocal}>
-                        Log out
-                      </Button>
+                      <p className='p-1 mx-1 my-1 h6'>III CSE WINDOWS</p>
                     </div>
                   </div>
-                </Container>
+                  <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px' }} id='profile'>
+                    <div>
+                      <SortNumericUpAlt size={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px' }} color='black' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6'>{data.rollNumber}</p>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
+                    <div>
+                      <img src="/class.png" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6'>{data.mobileNumber}</p>
+                    </div>
+                  </div>
+                  <Button style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px', justifyContent: "center", alignContent: "center", alignItems: "center", fontSize: "18px" }} id='profile' className='btn-danger fw-bolder' onClick={setLocal}>Log out</Button>
+                </div>
+                <br />
+
               </Card>
             </Col>
-            <Col md={6}>
-              <Card>
-                <Container className='p-3'>
-                  <div>
-                    <h2 className='text-center'>FEE DETAILS</h2>
-                    <center>
-                      <div id='profile' style={{ display: 'flex', justifyContent: 'space-between', border: '1px solid yellowgreen', width: '330px', padding: '3px', borderRadius: '10px' }}>
-                        <div style={{ display: 'flex' }}>
-                          <div>
-                            <img src="/fee.png" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green', marginTop: '6px' }} width={40} height={40} color='white' />
-                          </div>
-                          <div>
-                            <p className='p-1 mx-1 my-1 h6'>
-                              Total fee: 42500
-                              <br />
-                              Due fee: 10036
-                            </p>
-                          </div>
-                        </div>
-                        <div style={{ marginTop: '6px' }} className='text-center'>
-                          <Button onClick={reDirect}>Pay</Button>
-                        </div>
-                      </div>
-                      <br />
-                    </center>
+            <Col md={4} className='mt-4'>
+              <Card className='p-5' id="card">
+
+                <div className='text-ceter  h6' style={{ textAlign: 'center' }}>
+                  FEE DETAILS
+                </div>
+                <br />
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
+                    <div>
+                      <img src="https://th.bing.com/th?id=OIP.ixoAhgBxeLE1tauv6llzRAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6 fw-bolder'>TOTAL FEES <span className='bg-success rounded mx-2'>42500</span></p>
+                    </div>
                   </div>
-                </Container>
+                  <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px' }} id='profile'>
+                    <div>
+                      <img src="https://th.bing.com/th?id=OIP.OjqFVHAu2J4lM4KFfKOxcAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" width={40} height={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px' }} color='black' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6 fw-bolder'>next due<span className='bg-warning rounded mx-3'>10360</span></p>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
+                    <div>
+                      <img src="https://p7.hiclipart.com/preview/801/332/60/business-cards-limited-liability-partnership-company-stamp.jpg" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6 fw-bolder'>Paid due <span className='bg-success rounded mx-3'>123445</span></p>
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px', justifyContent: "center", alignContent: "center", alignItems: "center" }} id='profile' className='btn-light fw-bolder' >
+                    <div>
+                      <img src="https://th.bing.com/th/id/OIP.Ai1zpTdiHWkpK_9DsPIbywHaHa?rs=1&pid=ImgDetMain" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6 fw-bolder'>Paid due <span className='bg-success rounded mx-3'>123445</span></p>
+                    </div>
+                  </div>
+                </div>
+                <br />
+
+              </Card>
+            </Col>
+            <Col md={4} className='mt-4 mb-5'>
+              <Card className='p-5' id="card">
+                <div className='text-ceter  h4' style={{ textAlign: 'center' }}>
+                  IMPORTANT LINKS
+                </div><br />
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+
+                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
+                    <div>
+                      <img src="https://th.bing.com/th?id=OIP.e6DKoC4NIkF1n7coz7YRagHaFl&w=287&h=217&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6 fw-bolder'>FAQ</p>
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px' }} id='profile'>
+                    <div>
+                      <img src="https://th.bing.com/th/id/OIP.gzcak3piXiaDffpqvK42hgHaFj?rs=1&pid=ImgDetMain" width={40} height={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px' }} color='black' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6 fw-bolder'>HELP</p>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+
+                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
+                    <div>
+                      <img src="https://static.vecteezy.com/system/resources/previews/000/355/607/original/documentation-vector-icon.jpg" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6 fw-bolder'>documentation</p>
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px' }} id='profile'>
+                    <div>
+                      <img src="https://cdn2.vectorstock.com/i/1000x1000/02/16/about-us-icon-company-info-sign-vector-20390216.jpg" width={40} height={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px' }} color='black' />
+                    </div>
+                    <div>
+                      <p className='p-1 mx-1 my-1 h6 fw-bolder'>About us</p>
+                    </div>
+                  </div>
+                </div>
+
+                <br />
+
               </Card>
             </Col>
           </Row>
