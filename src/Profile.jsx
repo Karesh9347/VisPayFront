@@ -66,7 +66,7 @@ const Profile = () => {
       {token ? (
         <div id="grid">
           <center style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <div className='p-3 container' id="profile-card">
+            <div className='p-1 container' id="profile-card">
               <center style={{ marginTop: '-90px' }}>
                 <div className='bg-light' style={{ width: '100px', height: '100px', borderRadius: '50%' }} id='image-back'>
                   <img src="./vis.png" alt="" width={90} height={90} />
