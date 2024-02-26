@@ -68,20 +68,34 @@ main{
   text-align: start;
   width:100vw;
   height: 100vh;
- 
+ background-color: #282c34;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   margin-top: -40px;
+  display: grid;
+  gap:10px;
+  padding: 10px;
+opacity:0.89;
   
  
   
 }
+#circle{
+  background-color: rgb(214, 49, 77);
+  border-radius: 50%;
+ 
+ 
+}
+#circle:hover{
+  transition: 200px width;
+}
 #sub{
   margin-top: 100px;
-  backdrop-filter: blur(10px);
-
+  backdrop-filter: blur(50px);
+  
   width:350px;
+  background-color:rgb(7, 7, 7);
   height: 330px;
   border-radius: 5%;
   text-align: start;
@@ -90,6 +104,9 @@ main{
   text-transform: capitalize;
   text-shadow:1px 1px;
 color:violet;
+}
+#sub:hover{
+  background-color: coral;
 }
 #sub Button{
   width:320px;
@@ -179,13 +196,8 @@ hr{
 }
 #subm{
   
-  
-  text-align: start;
-  font-weight: 800;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-transform: capitalize;
-  text-shadow:1px;
-color:violet;
+ font-weight: 800;
+ color:green;
 
 
 
