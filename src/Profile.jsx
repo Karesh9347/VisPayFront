@@ -19,7 +19,7 @@ const Profile = () => {
     if (storedToken) {
       setToken(storedToken);
     } else {
-      navigate('/');
+      setLocal();
     }
   }, [navigate, token]);
 
@@ -62,14 +62,14 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div id="grid">
       {token ? (
-        <div id="grid">
+        <div >
           <center style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <div className='container' id="profile-card">
               <center style={{ marginTop: '-90px' }}>
-                <div className='bg-light' style={{ width: '100px', height: '100px', borderRadius: '50%' }} id='image-back'>
-                  <img src="./vis.png" alt="" width={90} height={90} />
+                <div className='bg-light' style={{ width: '150px', height: '150px', borderRadius: '50%' }} id='image-back'>
+                  <img src="./vis.png" alt="" width={140} height={140} />
                 </div>
                 <p className='h3'>{data.name}</p>
               </center>
@@ -79,80 +79,88 @@ const Profile = () => {
               </div>
               <br />
               <hr />
-              <Row lg={2} xl={2}>
-                <Col md={6} style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
-                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
+              <Row lg={2} xl={4} xxl={4} md={1} sm={2} xs={1} className='g-2'>
+                <Col md={3} >
+                  <div id='profile1' className='d-flex justify-content-start align-items-center'>
                     <div>
-                      <img src="/class.png" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
+                      <img src="/class.png" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green',border:"2px solid white" }} width={40} height={40} color='white' />
                     </div>
                     <div>
                       <p className='p-1 mx-1 my-1 h6'>III CSE WINDOWS</p>
                     </div>
                   </div>
-                  <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px' }} id='profile'>
+                  </Col>
+                  <Col md={3} >
+                  <div   id='profile1' className='d-flex justify-content-start align-items-center'>
                     <div>
-                      <SortNumericUpAlt size={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px' }} color='black' />
+                      <SortNumericUpAlt size={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px',border:"2px solid white" }} color='black' />
                     </div>
                     <div>
                       <p className='p-1 mx-1 my-1 h6'>{data.rollNumber}</p>
                     </div>
                   </div>
-                </Col>
-                <Col md={6} style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
-                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
+                  </Col>
+                  <Col md={3} >
+                  <div id='profile1' className='d-flex justify-content-start align-items-center'>
                     <div>
-                      <img src="/class.png" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
+                      <img src="/class.png" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green',border:"2px solid white" }} width={40} height={40} color='white' />
                     </div>
                     <div>
                       <p className='p-1 mx-1 my-1 h6'>{data.mobileNumber}</p>
                     </div>
                   </div>
-                  <Button style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px', justifyContent: "center", alignContent: "center", alignItems: "center", fontSize: "18px" }} id='profile' className='btn-danger fw-bolder' onClick={setLocal}>Log out</Button>
+                  </Col>
+                  <Col md={3} >
+                  <Button  id='profile1' className='btn-danger fw-bolder ' onClick={setLocal} style={{width:"100%"}}>Log out</Button>
                 </Col>
               </Row><br/>
               <div className='text-center h4' style={{ textAlign: 'center' }}>
                 FEE DETAILS
                 <hr></hr>
-              </div>
-              <Row lg={2} >
-              <Col md={6} className='d-flex'>
-              <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px', justifyContent: "space-between", alignContent: "center", alignItems: "center" }} id='profile' className='btn-light fw-bolder' >
-                <div className='d-flex justify-content-center align-items-center'>
+              </div> 
+              <Row lg={2} xl={4} md={1} sm={2} xs={1} className='g-2'>
+              <Col md={3}>
+              <div  id='profile1' className='d-flex justify-content-between align-items-center'>
+                <div className='d-flex justify-content-between align-items-center'>
                   <img src="https://th.bing.com/th?id=OIP.ixoAhgBxeLE1tauv6llzRAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
                   <p className='p-1 mx-1 my-1 h6 fw-bolder'>total fees</p>
                 </div>
-                <div style={{ marginTop: "5px" }}>
+                <Button>
                   <span className='bg-primary rounded' >66222</span>
-                </div>
+                </Button>
               </div>
-              <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px', justifyContent: "space-between", alignContent: "center", alignItems: "center" }} id='profile' className='btn-light fw-bolder' >
+              </Col>
+              <Col md={3} >
+              <div id='profile1' className='d-flex justify-content-between align-items-center'  >
                 <div className='d-flex justify-content-center align-items-center'>
                   <img src="https://th.bing.com/th?id=OIP.OjqFVHAu2J4lM4KFfKOxcAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
                   <p className='p-1 mx-1 my-1 h6 fw-bolder'>next due</p>
                 </div>
-                <div style={{ marginTop: "5px" }}>
+                <Button>
                   <span className='bg-primary rounded' >1022</span>
-                </div>
+                </Button>
               </div>
               </Col>
-             <Col md={6} className='d-flex'>
-              <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px', justifyContent: "space-between", alignContent: "center", alignItems: "center" }} id='profile' className='btn-light fw-bolder' >
+             <Col md={3}>
+              <div  id='profile1' className='d-flex justify-content-between align-items-center' >
                 <div className='d-flex justify-content-center align-items-center'>
                   <img src="https://p7.hiclipart.com/preview/801/332/60/business-cards-limited-liability-partnership-company-stamp.jpg" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
                   <p className='p-1 mx-1 my-1 h6 fw-bolder'>Paid due</p>
                 </div>
-                <div style={{ marginTop: "5px" }}>
+                <Button>
                   <span className='bg-primary rounded' >56565</span>
-                </div>
+                </Button>
               </div>
-              <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px', justifyContent: "space-between", alignContent: "center", alignItems: "center" }} id='profile' className='btn-light fw-bolder' >
+              </Col>
+             <Col md={3} >
+              <div  id='profile1' className='d-flex justify-content-between align-items-center'>
                 <div className='d-flex justify-content-center align-items-center'>
                   <img src="https://th.bing.com/th/id/OIP.Ai1zpTdiHWkpK_9DsPIbywHaHa?rs=1&pid=ImgDetMain" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
-                  <p className='p-1 mx-1 my-1 h6 fw-bolder'>total transactions</p>
+                  <p className='p-1 mx-1 my-1 fw-bolder'>total transsactions</p>
                 </div>
-                <div style={{ marginTop: "5px" }}>
+                <Button>
                   <span className='bg-primary rounded' >10</span>
-                </div>
+                </Button>
               </div>
               </Col>
               </Row>
@@ -160,9 +168,10 @@ const Profile = () => {
               <div className='text-center h4' style={{ textAlign: 'center' }}>
                 IMPORTANT LINKS
                 <hr></hr>
-                <Row lg={2} xl={2}>
-                <Col md={6} style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
-                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
+                <center>
+                <Row lg={2} xl={4} md={1} sm={2} xs={1} className='g-2'>
+                <Col md={3} >
+                  <div id='profile1' className='d-flex justify-content-start align-items-center'>
                     <div>
                       <img src="https://th.bing.com/th?id=OIP.e6DKoC4NIkF1n7coz7YRagHaFl&w=287&h=217&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
                     </div>
@@ -170,25 +179,30 @@ const Profile = () => {
                       <p className='p-1 mx-1 my-1 h6'>FAQ</p>
                     </div>
                   </div>
-                  <div style={{ display: 'flex', border: '1px solid green', width: '400px', padding: '3px', borderRadius: '10px' }} id='profile'>
+                  </Col>
+                  <Col md={3}>
+                  <div id='profile1' className='d-flex justify-content-start align-items-center'>
                     <div>
                       <img src="https://static.vecteezy.com/system/resources/previews/000/355/607/original/documentation-vector-icon.jpg" width={40} height={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px' }} color='black' />
                     </div>
                     <div>
-                      <p className='p-1 mx-1 my-1 h6'>Documentation</p>
+                      <p className='p-1 mx-1 my-1 h6'>Docs</p>
                     </div>
                   </div>
                 </Col>
-                <Col md={6} style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
-                  <div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
-                    <div>
+                <Col md={3}>
+                  <div id='profile1' className='d-flex justify-content-start align-items-center'>
+                    <div id="details">
                       <img src="https://th.bing.com/th/id/OIP.gzcak3piXiaDffpqvK42hgHaFj?rs=1&pid=ImgDetMain" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
                     </div>
                     <div>
                       <p className='p-1 mx-1 my-1 h6'>HELP</p>
                     </div>
-                  </div><div id='profile' style={{ display: 'flex', border: '1px solid yellowgreen', width: '400px', padding: '3px', borderRadius: '10px' }}>
-                    <div>
+                  </div>
+                  </Col>
+                  <Col md={3}>
+                  <div id='profile1' className='d-flex justify-content-start align-items-center'>
+                    <div id="details">
                       <img src="https://cdn2.vectorstock.com/i/1000x1000/02/16/about-us-icon-company-info-sign-vector-20390216.jpg" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
                     </div>
                     <div>
@@ -197,6 +211,7 @@ const Profile = () => {
                   </div>
                 </Col>
               </Row>
+              </center>
               </div>
             </div>
           </center>
