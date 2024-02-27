@@ -137,7 +137,7 @@ const Profile = () => {
                   <p className='p-1 mx-1 my-1 h6 fw-bolder'>next due</p>
                 </div>
                 <Button>
-                  <span className='bg-primary rounded' >1022</span>
+                  <span className='bg-primary rounded' >{data.totalFee}</span>
                 </Button>
               </div>
               </Col>
@@ -145,10 +145,10 @@ const Profile = () => {
               <div  id='profile1' className='d-flex justify-content-between align-items-center' >
                 <div className='d-flex justify-content-center align-items-center'>
                   <img src="https://p7.hiclipart.com/preview/801/332/60/business-cards-limited-liability-partnership-company-stamp.jpg" alt="" style={{ borderRadius: '50%', padding: '5px', backgroundColor: 'green' }} width={40} height={40} color='white' />
-                  <p className='p-1 mx-1 my-1 h6 fw-bolder'>Paid due</p>
+                  <p className='p-1 mx-1 my-1 h6 fw-bolder'>paid fee</p>
                 </div>
                 <Button>
-                  <span className='bg-primary rounded' >56565</span>
+                  <span className='bg-primary rounded' >{data.paidFee}</span>
                 </Button>
               </div>
               </Col>
