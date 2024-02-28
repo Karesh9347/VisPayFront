@@ -4,7 +4,7 @@ import Nav from './Nav'
 import BottomNavbar from './Bottom'
 import { Container,Form,Button,FormControl,FormLabel, FormGroup,Alert} from 'react-bootstrap';
 import './App.css'
-import { ToastContainer, toast } from 'react-toastify';
+
 
 const Deletes = () => {
   const [rollNumber, setRollNumber] = useState("");
@@ -12,7 +12,7 @@ const Deletes = () => {
   const handleDelete = async () => {
     try {
       if(rollNumber.length!==10){
-        toast("roll number must and should contain 10 chars")
+        alert("roll number must and should contain 10 chars")
        
       }
       else{
@@ -22,12 +22,12 @@ const Deletes = () => {
         data: { rollNumber },
       });
 
-       toast(response.data.message);
+       alert(response.data.message);
     }
       
     } catch (error) {
       console.error(error.message);
-      toast("Error deleting student");
+      alert("Error deleting student");
     }
   
   };
