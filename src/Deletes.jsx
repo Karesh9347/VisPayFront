@@ -5,7 +5,7 @@ import BottomNavbar from './Bottom'
 import { Container,Form,Button,FormControl,FormLabel, FormGroup,Alert} from 'react-bootstrap';
 import './App.css'
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 const Deletes = () => {
   const [rollNumber, setRollNumber] = useState("");
 
