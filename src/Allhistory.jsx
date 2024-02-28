@@ -51,7 +51,7 @@ const Allhistory = () => {
                         
                         <tbody key={tIndex}>
                           <td>{transaction.transactionId}</td>
-                          <td>{transaction.amount}</td>
+                          <td>{transaction.amount}rs</td>
                           <td>{transaction.date.slice(0,10)}</td>
                         </tbody>
                     
