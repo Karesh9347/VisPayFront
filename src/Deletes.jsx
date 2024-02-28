@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Nav from '../Nav'
+import Nav from './Nav'
 import BottomNavbar from './Bottom'
 import { Container,Form,Button,FormControl,FormLabel, FormGroup,Alert} from 'react-bootstrap';
 import './App.css'
