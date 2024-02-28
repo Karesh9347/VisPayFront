@@ -9,6 +9,8 @@ import History from './History';
 import Login from './Login';
 import Registration from './Registeration';
 import TermsAndConditions from './Terms';
+import Allhistory from './Admin/Allhistory';
+import Deletes from './Admin/Deletes';
 export const store = createContext();
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/terms" element={<TermsAndConditions/>}/>
+          <Route path="/allTransactions" element={<Allhistory/>}/>
+          <Route path="/studentDelete" element={<Deletes/>}/>
         </Routes>
       </BrowserRouter >
     </store.Provider>
