@@ -12,7 +12,7 @@ const Nav = () => {
               <img src="/vis.png" alt="" style={{width:"50%",height:"90%",marginLeft:"40px"}}/>
             </div>
           
-            <div id="img2" style={{width:"60%",height:"90px"}}>
+            <div id="img2" style={{width:"60%",height:"90px"}} className="  ">
               <img src="/banner2.png" alt=""style={{width:"100%",height:"100%"}}/>
              
              
