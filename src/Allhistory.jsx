@@ -66,7 +66,7 @@ const Allhistory = () => {
           </tbody>
         </Table>
       ) : (
-        <p>No transactions available</p>
+        <p>No transactions available </p>
       )}
     </div>
   );
