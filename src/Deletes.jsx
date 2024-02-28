@@ -51,7 +51,7 @@ const Deletes = () => {
       
       <Button onClick={handleDelete} className='bg-danger' style={{width:"300px"}}>Delete Student</Button>
       
-        <ToastContainer />
+      
       </FormGroup>
       
       </Form>
