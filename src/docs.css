@@ -1,0 +1,87 @@
+#a{
+    text-decoration: none;
+}
+li{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-style: italic;
+}
+#success img{
+    border-radius: 30px;
+    box-shadow: 5px 4px 5px rgb(192, 248, 255);
+    padding: 10px;
+}
+
+#payment img{
+    border-radius: 30px;
+    box-shadow: 5px 3px 8px 5px rgb(237, 151, 178);
+    padding: 10px;
+}
+#profile3 img{
+    border-radius: 30px;
+    box-shadow: 5px 3px 8px 5px rgb(240, 248, 153);
+    padding: 10px;
+}
+
+#login img{
+    border-radius: 30px;
+    box-shadow:5px 3px 8px 5px rgb(154, 141, 252);
+    padding: 10px;
+}
+#failure img{
+    border-radius: 30px;
+    box-shadow: 5px 3px 8px 5px rgb(234, 168, 179);
+    padding: 10px;
+}
+#history img{
+    border-radius: 30px;
+    box-shadow: 5px 3px 8px 5px rgb(185, 232, 173);
+    padding: 10px;
+}
+#success img:hover{
+padding: 0px;
+    cursor: pointer;
+    transition-duration: 1s;
+}
+
+#payment img:hover{
+    padding: 2px;
+    cursor: pointer;
+    transition-duration: 1s;
+}
+#profile3 img:hover{
+    padding: 2px;
+    cursor: pointer;
+    transition-duration: 1s;}
+
+#login img:hover{
+    padding: 2px;
+    cursor: pointer;
+    transition-duration: 1s;
+}
+#failure img:hover{
+    padding: 2px;
+    cursor: pointer;
+    transition-duration: 1s;
+}
+#history img:hover{
+    padding: 2px;
+    cursor: pointer;
+    transition-duration: 1s;
+}
+#col{
+    overflow-y: scroll;
+}
+#floating{
+    position: fixed;
+   
+    bottom: 70px;
+  right: 20px;
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+
