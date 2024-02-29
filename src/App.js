@@ -8,8 +8,8 @@ import History from './History';
 import Login from './Login';
 import Registration from './Registeration';
 import TermsAndConditions from './Terms';
-import Allhistory from './Admin/Allhistory';
-import Deletes from './Admin/Deletes';
+import Allhistory from './Allhistory';
+import Deletes from './Deletes';
 import Doc from './Doc';
 
 
