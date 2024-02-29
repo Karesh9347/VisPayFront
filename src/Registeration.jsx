@@ -58,7 +58,7 @@ const Registration = () => {
       alert(response.data.message);
     } catch (error) {
       console.error('Error creating user:', error.response.data.error);
-      toast.error('User is not created');
+    alert('User is not created');
     } finally {
       setLoading(false);
     }
