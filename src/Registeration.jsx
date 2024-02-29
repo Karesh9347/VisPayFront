@@ -6,6 +6,8 @@ import './App.css';
 import { back_url } from './key';
 import BottomNavbar from './Bottom';
 import Nav from './Nav';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -41,18 +43,23 @@ const Registration = () => {
     try {
       const passwordStrength = zxcvbn(formData.password);
       if (passwordStrength.score < 3) {
-        alert('Please choose a stronger password.');
+        toast('Please choose a stronger password.');
         setLoading(false);
         return;
+      }
+      if(formData.length!==10)
+      {
+         toast('mobile number must and should contain 10 digits.');
+        
       }
 
      
       const response = await axios.post(`${back_url}/registration`, formData);
       console.log(response.data.message);
-      alert(response.data.message);
+      toast(response.data.message);
     } catch (error) {
       console.error('Error creating user:', error.response.data.error);
-      alert('User is not created');
+      toast.error('User is not created');
     } finally {
       setLoading(false);
     }
