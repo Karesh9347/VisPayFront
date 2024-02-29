@@ -8,7 +8,7 @@ const Allhistory = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get(`${back_url}/alltransactions`);
+        const response = await axios.get(`https://vispay.onrender.com/alltransactions`);
         setTransactions(response.data);
       } catch (error) {
         console.error('Error fetching transactions:', error);
