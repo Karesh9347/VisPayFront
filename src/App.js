@@ -11,7 +11,7 @@ import TermsAndConditions from './Terms';
 import Allhistory from './Admin/Allhistory';
 import Deletes from './Admin/Deletes';
 import Doc from './Doc';
-import A404 from './404';
+
 
 export const store = createContext();
 
