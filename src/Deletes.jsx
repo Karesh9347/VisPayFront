@@ -18,7 +18,7 @@ const Deletes = () => {
       else{
 
      
-      const response = await axios.delete('http://localhost:3001/deleteStudent', {
+      const response = await axios.delete(`${back_url}/deleteStudent`, {
         data: { rollNumber },
       });
 
