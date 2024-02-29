@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ListGroup, ListGroupItem,Table } from 'react-bootstrap';
-import back_url from './key;
+import { back_url } from './key';
 const Allhistory = () => {
   const [transactions, setTransactions] = useState([]);
 
