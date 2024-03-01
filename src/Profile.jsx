@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button, Spinner } from 'react-bootstrap';
 import BottomNavbar from './Bottom';
 import { SortNumericUpAlt } from 'react-bootstrap-icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import axios from 'axios';
 import { base_url } from './key';
 import './profile.css';
@@ -181,14 +181,14 @@ const Profile = () => {
                   </div>
                   </Col>
                   <Col md={3}>
-                  <div id='profile1' className='d-flex justify-content-start align-items-center'>
+                 <Link to="/documentation"> <div id='profile1' className='d-flex justify-content-start align-items-center'>
                     <div>
                       <img src="https://static.vecteezy.com/system/resources/previews/000/355/607/original/documentation-vector-icon.jpg" width={40} height={40} style={{ backgroundColor: 'green', borderRadius: '50%', padding: '5px' }} color='black' />
                     </div>
                     <div>
                       <p className='p-1 mx-1 my-1 h6'>Docs</p>
                     </div>
-                  </div>
+                  </div></Link>
                 </Col>
                 <Col md={3}>
                   <div id='profile1' className='d-flex justify-content-start align-items-center'>
