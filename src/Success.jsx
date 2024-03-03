@@ -1,21 +1,23 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Card, Button, Container, Spinner } from 'react-bootstrap';
+import { Card, Button, Container, Spinner,Alert } from 'react-bootstrap';
 import Nav from './Nav';
 import BottomNavbar from './Bottom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import { base_url } from './key';
 
-const Success = ({category,setCategory}) => {
+
+
+
+const Success = () => {
   const searchParams = new URLSearchParams(window.location.search);
   const userId = searchParams.get('userId');
   const [token, setToken] = useState('');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const amount = localStorage.getItem('amount');
-
+const category=localStorage.getItem('category')
 
   const profileRef = useRef(null);
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ const Success = ({category,setCategory}) => {
 
   useEffect(() => {
     if (token) {
-      axios.get(`${base_url}/user`, { headers: { 'x-token': token } })
+      axios.get(`http://localhost:3001/user`, { headers: { 'x-token': token } })
         .then((res) => setData(res.data))
         .catch((err) => console.error('Error fetching user data:', err));
     }
@@ -41,26 +43,30 @@ const Success = ({category,setCategory}) => {
     if (data && userId) {
       const addTransaction = async () => {
         try {
-          const response = await axios.post(`${base_url}/addTransaction/${data.rollNumber}`, {
+          const response = await axios.post(`http://localhost:3001/addTransaction/${data.rollNumber}`, {
             transactionId: userId,
             amount,
-            categoryFee:category,
-            
+            categoryFee: category,
+
           });
-      
+
           if (response.status === 200) {
-            alert('Transaction added successfully');
+            
+      alert("transaction added successfully")
+         
           } else {
-           alert('Error adding transaction:', response.data.error);
-           alert(response.data.message)
+           
+       alert(response.data.message)
+            alert('Error adding transaction:', response.data.error);
+          
           }
         } catch (error) {
           console.error('Error adding transaction:', error);
         }
       };
-      
+
       addTransaction();
-      
+
     }
   }, [data, userId]);
 
@@ -101,9 +107,13 @@ const Success = ({category,setCategory}) => {
   };
 
   return (
-    <div style={{ marginTop: '100px' }}>
+    <div style={{ marginTop: '100px' ,marginBottom:"100px"}}>
       <Nav />
-      <Container style={{ width: '350px' }} id="sub" className="bg-light">
+     
+      
+      <Container style={{ width: '330px' }} id="sub" className='bg-light'>
+      
+      
         {token && data ? (
           <Card style={{ backgroundColor: 'lightgreen' }}>
             <Card.Header className='text-success'>Payment successfully completed</Card.Header>
@@ -115,16 +125,18 @@ const Success = ({category,setCategory}) => {
               <p className='h6'>Mobile number: <span className="text-danger">{data.mobileNumber}</span> </p>
               <hr />
               <p className='h6'>Amount: <span className="text-danger">{amount}</span> </p>
-              <hr/>
-              <p className='h6'>Category of fee: <span className="text-danger">{category}</span> </p><hr/>
-              <p className='h6'>status <span className="text-danger">success</span> </p>
+              <hr />
+              <p className='h6'>Category of fee: <span className="text-danger">{category}</span> </p><hr />
+              <p className='h6'>status: <span className="text-danger">success</span> </p>
               <hr />
               <p className='h6'>Transaction ID: <span className="text-danger">{userId}</span> </p>
               <hr />
             </Card.Body>
+           
           </Card>
         ) : null}
         <div style={{ display: "flex", justifyContent: "flex-start", gap: "10px", marginTop: "20px" }}>
+         
           <Button variant='primary' onClick={share}>
             Share
           </Button>
