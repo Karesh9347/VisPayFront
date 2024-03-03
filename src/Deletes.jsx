@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminNav from './AdminNav';
 import Login from './Login';
+import {back_url} from './Key'
 const Deletes = () => {
   const [rollNumber, setRollNumber] = useState("");
 const storedToken=localStorage.getItem("token")
@@ -20,7 +21,7 @@ const storedToken=localStorage.getItem("token")
       else{
 
      
-      const response = await axios.delete('http://localhost:3001/deleteStudent', {
+      const response = await axios.delete(`${back_url}/deleteStudent`, {
         data: { rollNumber },
       });
 
