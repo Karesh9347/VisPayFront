@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Nav from '../Nav'
-import BottomNavbar from '../Bottom'
+import Nav from './Nav'
+import BottomNavbar from './Bottom'
 import { Container,Form,Button,FormControl,FormLabel, FormGroup,Alert} from 'react-bootstrap';
-import '../App.css'
+import './App.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminNav from './AdminNav';
-import Login from '../Login';
+import Login from './Login';
 const Deletes = () => {
   const [rollNumber, setRollNumber] = useState("");
 const storedToken=localStorage.getItem("token")
