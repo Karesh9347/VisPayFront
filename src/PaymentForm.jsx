@@ -5,7 +5,7 @@ import Bottom from './Bottom';
 import Nav from './Nav';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { back_url } from './key';
+import { base_url } from './key';
 import './App.css';
 import Login from './Login'
 const PaymentForm = () => {
@@ -27,7 +27,7 @@ const [category,setCategory]=useState();
     
     if (storedToken) {
       setToken(storedToken)
-      axios.get(`${back_url}/user`, { headers: { 'x-token': storedToken } })
+      axios.get(`${base_url}/user`, { headers: { 'x-token': storedToken } })
         .then((res) => {
           setData(res.data);
           setRollNumber(res.data.rollNumber);
@@ -92,7 +92,7 @@ const [category,setCategory]=useState();
           if (rollNumber !== Data.rollNumber) {
             alert("enter your roll number through this\n account you can only pay fees");
           } else {
-            const response = await axios.post(`${back_url}/initiatePayment`, {
+            const response = await axios.post(`${base_url}/initiatePayment`, {
               amount,
               rollNumber,
             });
