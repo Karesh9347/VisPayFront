@@ -5,7 +5,7 @@ import Bottom from './Bottom';
 import Nav from './Nav';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { base_url } from './key';
+import { base_url } from './key'; 
 import './App.css';
 import Login from './Login'
 const PaymentForm = () => {
