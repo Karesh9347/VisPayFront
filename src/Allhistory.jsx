@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ListGroup, ListGroupItem,Table } from 'react-bootstrap';
 import AdminNav from './AdminNav';
-import '../App.css'
-import Login from '../Login';
+import './App.css'
+import Login from './Login';
 
 const Allhistory = () => {
   const [transactions, setTransactions] = useState([]);
