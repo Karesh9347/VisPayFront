@@ -4,7 +4,7 @@ import { ListGroup, ListGroupItem,Table } from 'react-bootstrap';
 import AdminNav from './AdminNav';
 import './App.css'
 import Login from './Login';
-import {back_url} from './Key'
+import { base_url } from './key';
 
 const Allhistory = () => {
   const [transactions, setTransactions] = useState([]);
@@ -12,7 +12,7 @@ const Allhistory = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get(`{back_url$}/alltransactions`);
+        const response = await axios.get(`{base_url$}/alltransactions`);
         setTransactions(response.data);
       } catch (error) {
         console.error('Error fetching transactions:', error);
