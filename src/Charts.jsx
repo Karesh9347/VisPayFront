@@ -2,7 +2,7 @@ import React from 'react'
 import { Chart } from 'react-google-charts';
 import {Row,Col,Card} from 'react-bootstrap'
 import AdminNav from './AdminNav';
-import Login from '../Login';
+import Login from './Login';
 const Charts = () => {
     const data = [
         ["student type", "number of students"],
