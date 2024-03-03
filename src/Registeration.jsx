@@ -4,7 +4,7 @@ import axios from 'axios';
 import zxcvbn from 'zxcvbn';
 import './App.css';
 import { back_url } from './key';
-import AdminNav from './Admin/AdminNav';
+import AdminNav from './AdminNav';
 
 const Registration = () => {
   const [formData, setFormData] = useState({
