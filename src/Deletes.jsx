@@ -1,40 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Nav from './Nav'
-import BottomNavbar from './Bottom'
+import Nav from '../Nav'
+import BottomNavbar from '../Bottom'
 import { Container,Form,Button,FormControl,FormLabel, FormGroup,Alert} from 'react-bootstrap';
-import './App.css'
-import { back_url } from './key';
+import '../App.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import AdminNav from './AdminNav';
+import Login from '../Login';
 const Deletes = () => {
   const [rollNumber, setRollNumber] = useState("");
-
+const storedToken=localStorage.getItem("token")
   const handleDelete = async () => {
     try {
       if(rollNumber.length!==10){
-        alert("roll number must and should contain 10 chars")
+        toast.error("roll number must and should contain 10 chars")
        
       }
       else{
 
      
-      const response = await axios.delete(`${back_url}/deleteStudent`, {
+      const response = await axios.delete('http://localhost:3001/deleteStudent', {
         data: { rollNumber },
       });
 
-       alert(response.data.message);
+       toast(response.data.message);
     }
       
     } catch (error) {
       console.error(error.message);
-      alert("Error deleting student");
+      toast.error("Error deleting student");
     }
   
   };
   
 
   return (
-    <div style={{marginTop:"100px"}}>
-      <Nav/>
+    <>
+    {storedToken?(
+      <div>
+    <AdminNav/>
+  
+    <div style={{marginTop:"50px"}}>
+   
       <Container id="subm" className="card" style={{width:"340px"}}> 
       <center className='card-header'>
       <h2 id="heading">Delete Student</h2>
@@ -50,15 +58,17 @@ const Deletes = () => {
       
       <Button onClick={handleDelete} className='bg-danger' style={{width:"300px"}}>Delete Student</Button>
       
-      
+        <ToastContainer />
       </FormGroup>
       
       </Form>
       </div>
       </Container>
     
-      <BottomNavbar/>
+     
     </div>
+    </div>):(<Login/>)}
+    </>
   );
 };
 
