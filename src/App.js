@@ -1,5 +1,5 @@
-import React, { useState, createContext, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, {createContext } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PaymentForm from './PaymentForm';
 import Success from './Success';
 import Failure from './Failure';
@@ -11,8 +11,12 @@ import TermsAndConditions from './Terms';
 import Allhistory from './Allhistory';
 import Deletes from './Deletes';
 import Doc from './Doc';
-
-
+import Update from './Update'
+import About from './About';
+import Help from './Help';
+import Admin from './Admin';
+import Charts from './Charts';
+import NotFound from './404';
 export const store = createContext();
 
 function App() {
@@ -28,7 +32,9 @@ function App() {
           <Route path="/register" element={<Registration />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/documentation" element={<Doc />} />
-          {token ? (
+          <Route path="/about" element={<About/>}/>
+          <Route path="/help" element={<Help/>}/>
+         
             <>
               <Route
                 path="/success"
@@ -38,15 +44,18 @@ function App() {
            
               <Route path="/history" element={<History />} />
               <Route path="/terms" element={<TermsAndConditions />} />
+              <Route path="/dashboard" element={<Admin/>}/>
               <Route path="/allTransactions" element={<Allhistory />} />
               <Route path="/studentDelete" element={<Deletes />} />
-             
+              <Route path="/charts" element={<Charts/>} />
+             <Route path="/update" element={<Update/>}/>
               <Route
                 path="/payment"
                 element={<PaymentForm />}
               />
             </>
-          ) : null}
+            <Route path="*" Component={NotFound}/>
+         
         </Routes>
       </BrowserRouter>
     </store.Provider>
