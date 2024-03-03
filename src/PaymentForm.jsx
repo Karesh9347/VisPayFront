@@ -7,8 +7,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { back_url } from './key';
 import './App.css';
-
-const PaymentForm = ({ category, setCategory }) => {
+import Login from './Login'
+const PaymentForm = () => {
   const [loading, setLoading] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState(false);
   const [isChecked, setIsChecked] = useState(true);
@@ -20,10 +20,13 @@ const PaymentForm = ({ category, setCategory }) => {
   const [counseling, setCounseling] = useState(true);
   const [Data, setData] = useState({});
   const [termsAccepted, setTermsAccepted] = useState(false);
-
+  const [token,setToken]=useState();
+const [category,setCategory]=useState();
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
+    
     if (storedToken) {
+      setToken(storedToken)
       axios.get(`${back_url}/user`, { headers: { 'x-token': storedToken } })
         .then((res) => {
           setData(res.data);
@@ -135,6 +138,8 @@ const PaymentForm = ({ category, setCategory }) => {
   }
 
   return (
+    <>
+    {token?(
     <div style={{ marginTop: '100px' }} className="mx-3">
       <Nav />
       {paymentStatus ? (
@@ -150,7 +155,8 @@ const PaymentForm = ({ category, setCategory }) => {
 
             <Form.Group controlId="exampleForm.SelectCustom">
               <Form.Label id="label">Select an option <span className='text-danger'>★</span></Form.Label>
-              <Form.Control as="select" custom onChange={(e) => setCategory(e.target.value)} placeholder='enter your name' id="control" required>
+              <Form.Control as="select" custom onChange={(e) => setCategory(e.target.value)}  id="control" required>
+                <option value="">choose your payment category</option>
                 <option value="college fee">college fee</option>
                 <option value="hostel fee">hostel fee</option>
                 <option value="bus fee">bus fee</option>
@@ -240,7 +246,25 @@ const PaymentForm = ({ category, setCategory }) => {
                         checked={otherCheck}
                         style={{ border: "1px solid black", borderRadius: "5px" }}
                       />
-                    </div>) : (<div>nri</div>)}
+                    </div>) : (<div>
+                      <div className="d-flex " style={{ display: "flex", gap: "10px" }}>
+                      <Form.Check
+                        type="radio"
+                        label="1 installment"
+                        onClick={handleCheckboxChange}
+                        checked={isChecked}
+                        defaultChecked
+                        style={{ border: "1px solid black", borderRadius: "5px" }}
+                      />
+                      <Form.Check
+                        type="radio"
+                        label="full fee"
+                        onClick={fullCheckboxChange}
+                        checked={fullCheck}
+                        style={{ border: "1px solid black", borderRadius: "5px" }}
+                      />
+                      </div>
+                    </div>)}
             </Form.Group>
             <br />
             <FormGroup style={{ display: "flex", justifyContent: "flex-start" }}>
@@ -262,7 +286,7 @@ const PaymentForm = ({ category, setCategory }) => {
         </Card>
       )}
       <Bottom />
-    </div>
+    </div>):(<Login/>)}</>
   );
 };
 
