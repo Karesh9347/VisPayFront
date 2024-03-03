@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-
+import {back_url} from './Key'
 
 
 
@@ -33,7 +33,7 @@ const category=localStorage.getItem('category')
 
   useEffect(() => {
     if (token) {
-      axios.get(`http://localhost:3001/user`, { headers: { 'x-token': token } })
+      axios.get(`${back_url}/user`, { headers: { 'x-token': token } })
         .then((res) => setData(res.data))
         .catch((err) => console.error('Error fetching user data:', err));
     }
@@ -43,7 +43,7 @@ const category=localStorage.getItem('category')
     if (data && userId) {
       const addTransaction = async () => {
         try {
-          const response = await axios.post(`http://localhost:3001/addTransaction/${data.rollNumber}`, {
+          const response = await axios.post(`${back_url}/addTransaction/${data.rollNumber}`, {
             transactionId: userId,
             amount,
             categoryFee: category,
