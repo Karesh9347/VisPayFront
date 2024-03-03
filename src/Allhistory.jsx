@@ -12,7 +12,7 @@ const Allhistory = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get(`{base_url$}/alltransactions`);
+        const response = await axios.get(`${base_url}/alltransactions`);
         setTransactions(response.data);
       } catch (error) {
         console.error('Error fetching transactions:', error);
