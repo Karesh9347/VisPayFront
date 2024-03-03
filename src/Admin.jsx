@@ -2,7 +2,7 @@
 import { Card, Col, Row,Table } from 'react-bootstrap';
 import {useEffect,useReducer,useState} from 'react';
 import './Admin.css';
-import Login from '../Login';
+import Login from './Login';
 import AdminNav from './AdminNav';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios';
