@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ListGroup, ListGroupItem,Table } from 'react-bootstrap';
-import { back_url } from './key';
+import AdminNav from './AdminNav';
+import '../App.css'
+import Login from '../Login';
+
 const Allhistory = () => {
   const [transactions, setTransactions] = useState([]);
-
+  const storedToken=localStorage.getItem("token")
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get(`https://vispay.onrender.com/alltransactions`);
+        const response = await axios.get('http://localhost:3001/alltransactions');
         setTransactions(response.data);
       } catch (error) {
         console.error('Error fetching transactions:', error);
@@ -19,8 +22,11 @@ const Allhistory = () => {
   }, []);
 
   return (
-    <div>
-      <h1>All Transactions</h1>
+    <div>{
+      storedToken?(
+      <div>
+      <AdminNav/>
+      <h1 className='heading1'>All Transactions</h1>
       {transactions && transactions.length > 0 ? (
         <Table responsive striped bordered hover className="custom-table">
           <thead>
@@ -68,7 +74,7 @@ const Allhistory = () => {
       ) : (
         <p>No transactions available</p>
       )}
-    </div>
+    </div>):(<Login/>)}</div>
   );
 };
 
