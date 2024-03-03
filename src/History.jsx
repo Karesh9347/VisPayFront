@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Badge, Button, Card, Container, Spinner, Table } from 'react-bootstrap';
+import { Badge, Button, Card, Container, Spinner, Table, NavDropdown, Navbar, Nav, NavItem, NavLink, DropdownItem } from 'react-bootstrap';
 import axios from 'axios';
 import { redirect, useNavigate } from 'react-router-dom';
 import BottomNavbar from './Bottom';
 import './profile.css';
-import { FileEarmarkTextFill, FileText, GooglePlay, Send } from 'react-bootstrap-icons';
+import { FileEarmarkTextFill, FileText, GooglePlay, Search, SearchHeart, Send } from 'react-bootstrap-icons';
 import { base_url } from './key';
+import Login from './Login';
 
 const History = () => {
-  const [text, setText] = useState("All Fee Payments History");
+
   const [token, setToken] = useState(null);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
-  const newData = data.sort();
+  const newData = data.reverse();
 
   var totalamt = 0;
   let i;
@@ -55,65 +57,80 @@ const History = () => {
   };
 
   return (
+    <>{
+      token?(
     <div className="mb-5">
-    <h2 className="mt-4 mb-4 text-primary">{text}</h2>
-    <hr />
 
-    {loading ? (
-      <div className="text-center mt-4">
-        <Spinner animation="border" variant="primary" />
+     <div className='d-flex justify-content-between bg-primary p-1 fixed-top'>
+      <div className='mx-3'>
+        <h6 ID="heading1">payment history</h6>
       </div>
-    ) : newData.length > 0 ? (
-      <div>
-        <div className="p-3 bg-info rounded-5 mb-3">
-          <p className="h3 text-dark">
-            Total amount paid till now{' '}
-            <Badge bg="success">{totalamt}₹</Badge>
-          </p>
+      <div className='d-flex mx-3'>
+        <input className='form-control' placeholder='search your transaction id'/><Button className='bg-dark'><Search></Search></Button>
+      </div>
+     </div>
+
+      
+
+      {loading ? (
+        <div className="text-center mt-4">
+          <Spinner animation="border" variant="primary" />
         </div>
-        <div>
-          <Table responsive striped bordered hover className="custom-table">
-            <thead>
-              <tr>
-                <th>TransID</th>
-                <th>Amount</th>
-                <th>Category</th>
-                <th>Date</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((item) => (
-                <tr key={item._id}>
-                  <td>{item.transactionId}</td>
-                  <td>{item.amount}₹</td>
-                  <td>{item.categoryFee}</td>
-                  <td>{item.date.slice(0, 10)}</td>
-  
+      ) : newData.length > 0 ? (
+        <div className='mt-5'>
+          <div className="p-2 bg-info rounded-5 mb-3">
+            <p className="h5 text-dark">
+              Total amount paid till now{' '}
+              <Badge bg="success">{totalamt}₹</Badge>
+            </p>
+          </div>
+         
+          
+          <div className='rounded m-2'>
+            <Table responsive striped bordered hover className="custom-table rounded">
+              <thead>
+                <tr>
+                  <th>TransID</th>
+                  <th>Amount</th>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {data.map((item) => (
+                  <tr key={item._id}>
+                    <td>{item.transactionId}</td>
+                    <td>{item.amount}₹</td>
+                    <td>{item.categoryFee}</td>
+                    <td>{item.date.slice(0, 10)}</td>
+                    <td>
+                      <Badge bg="success">Success</Badge>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
         </div>
-      </div>
-    ) : (
-      <div className="text-center mt-5">
-        <FileEarmarkTextFill size={80} color="blue" />
-        <p className="mt-2 h2 text-danger">No transaction history available</p>
-        <Button variant="primary" size="lg" onClick={reDirect}>
-          <img
-            src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-44/64/x-45-512.png"
-            width={40}
-            height={40}
-            alt="Pay Now"
-            className="mr-2"
-          />
-          Pay now
-        </Button>
-      </div>
-    )}
-    <BottomNavbar />
-  </div>
+      ) : (
+        <div className="text-center mt-5">
+          <FileEarmarkTextFill size={80} color="blue" />
+          <p className="mt-2 h2 text-danger">No transaction history available</p>
+          <Button variant="primary" size="lg" onClick={reDirect}>
+            <img
+              src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-44/64/x-45-512.png"
+              width={40}
+              height={40}
+              alt="Pay Now"
+              className="mr-2"
+            />
+            Pay now
+          </Button>
+        </div>
+      )}
+      <BottomNavbar />
+    </div>):(<Login/>)}</>
   );
 };
 
