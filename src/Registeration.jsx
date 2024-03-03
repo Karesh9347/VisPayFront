@@ -3,7 +3,7 @@ import { Form, FormGroup, FormLabel, FormControl, Button, Spinner, FormFile } fr
 import axios from 'axios';
 import zxcvbn from 'zxcvbn';
 import './App.css';
-import { back_url } from './key';
+import { base_url } from './key';
 import AdminNav from './AdminNav';
 
 const Registration = () => {
@@ -64,7 +64,7 @@ const Registration = () => {
         formDataWithImage.append('profileImage', imageFile);
       }
 
-      const response = await axios.post(`${back_url}/registration`, formDataWithImage, {
+      const response = await axios.post(`${base_url}/registration`, formDataWithImage, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
