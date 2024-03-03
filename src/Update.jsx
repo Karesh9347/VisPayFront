@@ -4,7 +4,7 @@ import { Form, Button, FormGroup, FormLabel, Spinner, FormControl } from 'react-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminNav from './AdminNav';
-import Login from '../Login';
+import Login from './Login';
 
 const Update = () => {
   const [rollNumber, setRollNumber] = useState('');
