@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminNav from './AdminNav';
 import Login from './Login';
-
+import {back_url} from './Key'
 const Update = () => {
   const [rollNumber, setRollNumber] = useState('');
   const [formData, setFormData] = useState({
@@ -61,7 +61,7 @@ const Update = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:3001/updateStudent/${rollNumber}`,
+        `${back_url}/updateStudent/${rollNumber}`,
         formDataWithImage
       );
 
