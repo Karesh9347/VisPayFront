@@ -6,7 +6,7 @@ import Login from './Login';
 import AdminNav from './AdminNav';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios';
-import {back_url} from './key'
+import {back_url} from './Key'
 function Admin() {
     const [transactions, setTransactions] = useState([]);
  const storedToken=localStorage.getItem("token")
