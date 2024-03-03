@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 import Nav from './Nav';
-import { back_url } from './key';
+import { base_url } from './key';
 
 
 const Login = () => {
@@ -24,7 +24,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${back_url}/login`, formData);
+      const response = await axios.post(`${base_url}/login`, formData);
       const token = response.data.token;
 
       if (token) {
