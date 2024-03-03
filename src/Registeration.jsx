@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, FormLabel, FormControl, Button, Spinner, FormSelect } from 'react-bootstrap';
+import { Form, FormGroup, FormLabel, FormControl, Button, Spinner, FormFile } from 'react-bootstrap';
 import axios from 'axios';
 import zxcvbn from 'zxcvbn';
 import './App.css';
 import { back_url } from './key';
-import BottomNavbar from './Bottom';
-import Nav from './Nav';
-
+import AdminNav from './Admin/AdminNav';
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +13,7 @@ const Registration = () => {
     mobileNumber: "",
     password: "",
     admissionType: "",
+    role: "",
     year: "",
     dob: "",
     section: "",
@@ -24,8 +23,9 @@ const Registration = () => {
     address: "",
     email: "",
     guardianName: "",
-    
   });
+
+  const [imageFile, setImageFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -33,6 +33,11 @@ const Registration = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
   };
 
   const handleSubmit = async (e) => {
@@ -46,30 +51,40 @@ const Registration = () => {
         setLoading(false);
         return;
       }
-      if(formData.length!==10)
-      {
-         alert('mobile number must and should contain 10 digits.');
-        
+
+      const formDataWithImage = new FormData();
+
+      // Append text data
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataWithImage.append(key, value);
+      });
+
+      // Append image file
+      if (imageFile) {
+        formDataWithImage.append('profileImage', imageFile);
       }
 
-     
-      const response = await axios.post(`${back_url}/registration`, formData);
+      const response = await axios.post(`${back_url}/registration`, formDataWithImage, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
       console.log(response.data.message);
       alert(response.data.message);
     } catch (error) {
-      console.error('Error creating user:', error.response.data.error);
-    alert('User is not created');
+      console.error('Error creating user:', error.response?.data?.error || error.message);
+      alert('User is not created');
     } finally {
       setLoading(false);
     }
   };
-console.log(formData)
+
   return (
-    <main>
-      <Nav />
-      <center style={{ marginBottom: "100px" }}>
-        <br />
-        <center id="sub1" style={{ marginTop: "100px" }} className='main1'>
+    <div>
+      <AdminNav />
+      <center>
+        <center className='card' id="subr">
           <h2 id="heading">Registration Form</h2>
           <hr></hr>
           <Form onSubmit={handleSubmit} id="form">
@@ -113,7 +128,7 @@ console.log(formData)
               <FormLabel id="label">Mobile Number <span className='text-danger'>★</span></FormLabel>
               <FormControl
                 placeholder='Enter your mobile number.'
-                type="text"
+                type="tel"
                 name="mobileNumber"
                 value={formData.mobileNumber}
                 onChange={handleChange}
@@ -131,53 +146,79 @@ console.log(formData)
                 onChange={handleChange}
                 required
                 id="control"
-              
+
 
               />
             </FormGroup>
 
-            <FormGroup>
-              <FormLabel id="label">Admission Type 
-              <span className='text-danger'>★</span></FormLabel>
-              <FormControl
-                value={formData.admissionType}
-                onChange={handleChange}
-                id="control"
-                name='admissionType'
-                required
+            <Form.Group controlId="exampleForm.SelectCustom">
+              <Form.Label id="label">type of admission <span className='text-danger'>★</span></Form.Label>
+              <Form.Control as="select" custom onChange={handleChange} id="control" required name="admissionType" value={formData.admissionType}>
+                <option value="">choose your type of admission</option>
+                <option value="counselling">counselling</option>
+                <option value="NRI">NRI</option>
 
-              />
-              
-            </FormGroup>
-            <FormGroup>
-              <FormLabel id="label">Year <span className='text-danger'>★</span></FormLabel>
-              <FormControl
-                value={formData.year}
-                onChange={handleChange}
-                id="control"
-                name='year'
-                required
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="exampleForm.SelectCustom">
+              <Form.Label id="label">role in college<span className='text-danger'>★</span></Form.Label>
+              <Form.Control as="select" custom onChange={handleChange} id="control" required name="role" value={formData.role}>
+                <option value="">choose your role in college ....</option>
+                <option value="student">student</option>
+                <option value="teacher">teacher</option>
+                <option value="admin">admin</option>
 
-              />
-               
-            </FormGroup>
-            <FormGroup>
-              <FormLabel id="label">Section <span className='text-danger'>★</span></FormLabel>
-              <FormControl
-                placeholder='Enter section.'
-                type="text"
-                name="section"
-                value={formData.section}
-                onChange={handleChange}
-                id="control"
-                required
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="exampleForm.SelectCustom">
+              <Form.Label id="label">year of studying<span className='text-danger'>★</span></Form.Label>
+              <Form.Control as="select" custom onChange={handleChange} id="control" required name="year" value={formData.year}>
+                <option value="">choose your year of studying....</option>
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
 
-              />
-            </FormGroup>
+
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="exampleForm.SelectCustom">
+              <Form.Label id="label">section<span className='text-danger'>★</span></Form.Label>
+              <Form.Control as="select" custom onChange={handleChange} id="control" required name="section" value={formData.section}>
+                <option value="">choose your section....</option>
+                <option value="windows">windows</option>
+                <option value="mac">mac</option>
+                <option value="andriod">andriod</option>
+                <option value="linux">linux</option>
+                <option value="ubntu">ubuntu</option>
+
+
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="exampleForm.SelectCustom">
+              <Form.Label id="label">regulation<span className='text-danger'>★</span></Form.Label>
+              <Form.Control as="select" custom onChange={handleChange} id="control" required name="regulation" value={formData.regulation}>
+                <option value="">choose your regulation....</option>
+                <option value="R-18">R-18</option>
+                <option value="R-19">R-19</option>
+                <option value="R-20">R-20</option>
+                <option value="R-21">R-21</option>
+                <option value="R-22">R-22</option>
+                <option value="R-23">R-23</option>
+                <option value="R-24">R-24</option>
+                <option value="R-25">R-25</option>
+                <option value="R-26">R-26</option>
+                <option value="R-27">R-27</option>
+
+
+              </Form.Control>
+            </Form.Group>
+
+
             <FormGroup>
               <FormLabel id="label">Paid Fee <span className='text-danger'>★</span></FormLabel>
               <FormControl
-                placeholder='Enter paid fee.'
+                placeholder='Enter paid fee....'
                 type="text"
                 name="paidFee"
                 value={formData.paidFee}
@@ -187,17 +228,7 @@ console.log(formData)
 
               />
             </FormGroup>
-            <FormGroup>
-              <FormLabel id="label">Regulation <span className='text-danger'>★</span></FormLabel>
-              <FormControl
-                value={formData.regulation}
-                onChange={handleChange}
-                id="control"
-                name='regulation'
-                required
-              />
-               
-            </FormGroup>
+
             <FormGroup>
               <FormLabel id="label">Total Fee <span className='text-danger'>★</span></FormLabel>
               <FormControl
@@ -215,6 +246,7 @@ console.log(formData)
               <FormLabel id="label">Address <span className='text-danger'>★</span></FormLabel>
               <FormControl
                 placeholder='Enter your address.'
+
                 type="text"
                 name="address"
                 value={formData.address}
@@ -250,7 +282,19 @@ console.log(formData)
 
               />
             </FormGroup>
-            
+
+
+            <Form.Group>
+              <FormLabel id="label">Profile Image</FormLabel>
+              <input 
+              className='form-control'
+                label="Profile Image"
+                type="file"
+                name="profileImage" 
+                onChange={handleImageChange} />
+
+            </Form.Group>
+
             <br />
             <Button type="submit" className='text-center'>
               {loading ? <Spinner animation="border" variant="light" size="sm" /> : 'Submit'}
@@ -258,8 +302,7 @@ console.log(formData)
           </Form>
         </center>
       </center>
-      <BottomNavbar />
-    </main>
+    </div>
   );
 };
 
