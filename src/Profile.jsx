@@ -25,23 +25,23 @@ const Profile = () => {
     }
   }, [navigate, token]);
 
- const fetchData = async () => {
-  try {
-    if (token) {
-      const res = await axios.get(`${base_url}/user`, {
-        headers: {
-          'x-token': token,
-        },
-      });
-      setData(res.data);
-    }
-  } catch (err) {
-    console.error('Error fetching user data:', err);
-  } finally {
-    setLoading(false);
-  }
-};
-
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (token) {
+          const res = await axios.get(`${base_url}/user`, {
+            headers: {
+              'x-token': token,
+            },
+          });
+          setData(res.data);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
     fetchData();
 
