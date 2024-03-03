@@ -2,10 +2,15 @@ import React from 'react';
 import { XOctagonFill } from 'react-bootstrap-icons';
 import Nav from './Nav';
 import BottomNavbar from './Bottom';
+import Login from './Login';
+import { store } from './App';
 
 
 const Failure = () => {
+  const storedToken=localStorage.getItem("token")
   return (
+    <div>{storedToken?
+      (
     <div className="container">
       <Nav/>
       <div className="row justify-content-center align-items-center" style={{ height: '100vh' }}>
@@ -15,7 +20,7 @@ const Failure = () => {
         </div>
       </div>
       <BottomNavbar/>
-    </div>
+    </div>):(<Login/>)}</div>
   );
 }
 
