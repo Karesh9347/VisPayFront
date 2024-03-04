@@ -5,7 +5,7 @@ import AdminNav from './AdminNav';
 import './App.css'
 import Login from './Login';
 import { base_url } from './key';
-
+import './Admin.css'
 const Allhistory = () => {
   const [transactions, setTransactions] = useState([]);
   const storedToken=localStorage.getItem("token")
@@ -27,7 +27,10 @@ const Allhistory = () => {
       storedToken?(
       <div>
       <AdminNav/>
-      <h1 className='heading1'>All Transactions</h1>
+        <div className="heading-container">
+           <h1 className='heading'>All Transactions</h1>
+        </div>
+     
       {transactions && transactions.length > 0 ? (
         <Table responsive striped bordered hover className="custom-table">
           <thead>
