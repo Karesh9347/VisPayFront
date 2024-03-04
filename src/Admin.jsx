@@ -7,6 +7,7 @@ import AdminNav from './AdminNav';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import { base_url } from './key';
+import './Admin.css'
 function Admin() {
     const [transactions, setTransactions] = useState([]);
  const storedToken=localStorage.getItem("token")
@@ -75,7 +76,9 @@ function Admin() {
         <Row>
           
           <Col >
-         
+          <div className='heading-container'>
+          <h1 className='heading'>All User List</h1>
+          </div>
       
           {transactions && transactions.length > 0 ? (
         <Table responsive striped bordered hover className="custom-table">
