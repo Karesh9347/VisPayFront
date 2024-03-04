@@ -1,19 +1,95 @@
-.link{
+#link{
    
     align-content: center;
     text-decoration: none;
     margin-left: 20px;
     
 }
-.link:active{
+#link:active{
     background-color: aqua;
 }
 #container{
     font-weight: 700;
     font-size: 20px;
 }
-.link:hover{
+#link:hover{
     background-color: rgb(192, 15, 103);
     border-radius: 20px;
     transition-delay: 80ms;
 }
+
+ 
+#h1 {
+    color: #3498db;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease-in-out; 
+}
+  
+  #h1:hover {
+    color: #e74c3c;
+    cursor: pointer;
+  }
+  
+  #h1 {
+    border-bottom: 2px solid #3498db; 
+    padding-bottom: 5px;
+  }
+  
+  #h1 {
+    background-color: #f2f7f9; 
+    padding: 5px; 
+    border-radius: 10px;
+    backdrop-filter: blur(5px); 
+    transition: background-color 0.3s ease-in-out; 
+  }
+  
+  #h1:hover {
+    background-color: #dfe6eb; }
+    .heading {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        color: #3498db;
+        font-size: 2em;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        letter-spacing: 1px;
+        transition: color 0.3s ease-in-out;
+        font-weight: 600;
+      }
+      
+      .heading:hover {
+        color: #e74c3c;
+        cursor: pointer;
+      }
+      
+      .heading-container {
+        background-color: #f2f7f9;
+        padding: 10px;
+        border-radius: 20px;
+        backdrop-filter: blur(50px);
+        transition: background-color 0.3s ease-in-out;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        width: 100%;
+        margin: 0 auto;
+       
+        overflow: hidden;
+      }
+      
+      .heading-container:hover {
+        background-color: #dfe6eb;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+       
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+      
+      
+      .heading-container:hover {
+        border-color: #e74c3c;
+        transition: border-color 0.3s ease-in-out;
+      }
+      
+  
