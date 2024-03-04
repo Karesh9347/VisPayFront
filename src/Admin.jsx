@@ -1,5 +1,5 @@
 
-import { Card, Col, Row,Table.Button } from 'react-bootstrap';
+import { Card, Col, Row,Table,Button } from 'react-bootstrap';
 import {useEffect,useReducer,useState,useRef} from 'react';
 import './Admin.css';
 import Login from './Login';
