@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { Badge, Button, Card, Container, Spinner, Table, NavDropdown, Navbar, Nav, NavItem, NavLink, DropdownItem } from 'react-bootstrap';
 import axios from 'axios';
 import { redirect, useNavigate } from 'react-router-dom';
@@ -7,9 +7,11 @@ import './profile.css';
 import { FileEarmarkTextFill, FileText, GooglePlay, Search, SearchHeart, Send } from 'react-bootstrap-icons';
 import { base_url } from './key';
 import Login from './Login';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const History = () => {
-
+ const profileRef=useRef(null)
   const [token, setToken] = useState(null);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -55,6 +57,26 @@ const History = () => {
   const reDirect = () => {
     navigate("/payment");
   };
+  const pdfDownload = async () => {
+    try {
+      const contentRef = profileRef.current;
+      if (contentRef) {
+        const canvas = await html2canvas(contentRef, { scale: 3});
+        const imgData = canvas.toDataURL('image/png');
+  
+        const pdf = new jsPDF({
+          orientation: 'landscape',
+          unit: 'mm',
+          format: 'a4',
+        });
+  
+        pdf.addImage(imgData, 'PNG', 0, 0, 297, 210); 
+        pdf.save('transaction_history.pdf');
+      }
+    } catch (err) {
+      console.error('Error at downloading PDF', err);
+    }
+  };
 
   return (
     <>{
@@ -77,17 +99,12 @@ const History = () => {
           <Spinner animation="border" variant="primary" />
         </div>
       ) : newData.length > 0 ? (
-        <div className='mt-5'>
-          <div className="p-2 bg-info rounded-5 mb-3">
-            <p className="h5 text-dark">
-              Total amount paid till now{' '}
-              <Badge bg="success">{totalamt}₹</Badge>
-            </p>
-          </div>
+       <div  style={{marginTop:"70px"}}>
+         
          
           
           <div className='rounded m-2'>
-            <Table responsive striped bordered hover className="custom-table rounded">
+            <Table responsive striped bordered hover className="custom-table rounded" ref={profileRef}>
               <thead>
                 <tr>
                   <th>TransID</th>
@@ -112,6 +129,18 @@ const History = () => {
               </tbody>
             </Table>
           </div>
+          <div className="d-flex justify-content-evenly">
+            
+          <Button variant='outline-primary'>  <p className='text-dark'>
+            
+          total amount= <Badge bg="success">{totalamt}₹</Badge>
+            </p>
+            </Button>
+            <div>
+            <Button onClick={pdfDownload} className='p-3 ' >pdf download</Button>
+          </div>
+          </div>
+         
         </div>
       ) : (
         <div className="text-center mt-5">
